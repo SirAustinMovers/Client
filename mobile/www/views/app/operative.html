@@ -1,0 +1,64 @@
+
+<ion-view class="home-view">
+	<ion-nav-title>
+  {{::post.title.rendered}}
+	</ion-nav-title>
+  <ion-content class="padding" style="    padding-top: 0;">
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+  	<div class="card post">
+        <div style="text-align: center">
+   <img  ng-src="{{user.avatar}}" style="        width: 36%;
+    border-radius: 50%; padding: .35em;    border: 2px solid #efefef;         margin-top: 25px;" />
+            <h5 style="    font-size: 18px;
+    font-weight: 300;    margin-bottom: 0;    margin-bottom: 2px;">Adam Dartez</h5>
+                <h2 class="optional" style="     color: blue;    color: #448bb5;    top: 10px;
+    font-size: 14px; ">{{post.jobtitle| htmlToPlaintext}}<span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>    
+        </div>
+        <div class="row">
+            <div class="col col-33" style="text-align: center; font-size: 60px;"><img src="img/phone.png" width="100%"> </div>
+            <div class="col col-33" style="text-align: center;"> <img src="img/text-message.png" width="100%"> </div>
+            <div class="col col-33" style="text-align: center; font-size: 60px;"><img src="img/shoutout.png" width="100%"> </div>
+        </div>
+        <h5 style="padding-left: 16px; margin-top: 10px;">About Adam</h5>
+  		<div class="item item-body" style="    padding-top: 0; border-bottom: 0;" ng-if="content" ng-bind-html="content | html_filters"></div>
+    
+
+      <div >
+          <div style="padding: 16px;">
+                <h5 style="margin-top: 10px;">Wall Comment</h5>
+              <form><textarea rows="8" cols="50" placeholder="Leave your message here..." style="   width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></textarea>
+              <button ion-button icon-left style="       padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: #ff595a;
+    border: 0;
+    color: white;
+    float: right;
+    margin-top: 7px;
+    margin-bottom: 10px;">
+  <ion-icon name="home"></ion-icon>
+ Send
+</button>
+              </form>
+          </div>
+      </div>
+
+    </div>
+
+    <!--div class="item item-divider">Comments</div>
+      <ion-list ng-if="comments">
+        <ion-item ng-repeat="comment in comments">
+          <div class="item-body">
+            <h3 ng-bind-html="comment.author_name"></h3>
+            <p ng-bind-html="comment.content.rendered"></p>
+          </div>
+        </ion-item>
+      </ion-list-->
+  </ion-content>
+</ion-view>

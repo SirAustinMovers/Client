@@ -1,0 +1,12 @@
+.main-menu .heading-item .item-content {
+padding: 0px !important;
+    position: relative;
+    height: 167px;
+    border-radius: 50%;
+    width: 50%;
+    height: 107px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

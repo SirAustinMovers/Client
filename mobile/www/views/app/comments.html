@@ -1,0 +1,148 @@
+<style>
+.home-view .card-button, .category-view .card-button {
+    font-size: 14px;
+    padding: 6px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+</style>
+<ion-view class="home-view">
+ 
+  <ion-nav-title>
+    <span>Comments</span>
+  </ion-nav-title>
+  <ion-content>
+ 
+      
+
+      
+      
+   
+      
+            <div class="item item-divider" style="font-size: 15px;    padding-top: 18px; font-weight: 200;">All Comment Activity</div>
+        
+    	 
+      
+    	 
+      
+      
+ 
+          <div ng-repeat="post in posts track by $index" track>
+        
+         
+      
+<div class="posts">
+            <div  class="post-card" style=" margin: 0px 0px 0px 0px;">
+                
+                
+
+            
+      
+        <div class="card-header" style="    padding: 7px;
+    padding-bottom: 0;">
+            
+             <div class = "row">
+   <div class = "col" style="padding-bottom: 0;">
+       
+       
+       <h1 class="packshack" style="margin-bottom: 0;    padding-left: 5px;">{{post.author_name}}</h1>
+                        <h2 class="optional" style="    top: 14px; position: absolute; right: 16px; color: blue;    color: #448bb5;    top: 10px;
+    font-size: 15px;">{{post.date | date}}<span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>    
+    </div>
+        
+ </div>
+              
+</div>
+<div class="card-content-outer">
+    
+     <div class = "row" style="padding-left: 16px; padding-right: 16px; padding-top: 5px;">
+   <div class = "col col-33">
+       
+         <img ng-src="{{post.author_avatar_urls[96]}}" style="    width: 100%;
+    border-radius: 50%;
+    
+    padding: .25em;    border-radius: 50%;
+    
+    padding: .25em;    width: 100px;
+    border-radius: 50%;
+    padding: .35em;
+    border: 2px solid #efefef;    height: 86px;">
+ 
+   </div>
+   <div class = "col col-66"><div class="card-content"><p style=" padding: 0;">{{post.content.rendered | html_filters | htmlToPlaintext | limitTo: 125 | rawHtml }}</p></div></div>
+  
+ </div>
+ 
+    
+    
+</div>
+<div class="card-footer" style="margin-top: 2px;">
+ 
+ <a class="card-button primary" href="#/app/post/{{post.post}}">DETAILS</a> | <a class="card-button primary" style="color: #3c3c3c;">CONTACT</a>       
+     <!-- <a class="card-button secondary" ng-click="sharePost(post.url)">DETAILS</a> -->
+  
+  
+</div>
+
+        </div>
+    </div>  
+      </div>
+   
+      
+        
+        <!--
+    <div ng-repeat="x in records">
+        
+        
+        
+        <p>{{x._embedded.author[0].name}}</p>
+        <p>{{x.link}}</p>
+        <p>{{x.date | date}}</p>
+       {{x.content.rendered | htmlToPlaintext}}
+        <img src="{{x.author_avatar_urls[96]}}" />
+      
+ 
+    </div>
+ -->
+      
+     
+       
+
+  </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

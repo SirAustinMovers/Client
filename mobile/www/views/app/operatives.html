@@ -1,0 +1,371 @@
+<style>
+.home-view .card-button, .category-view .card-button {
+    font-size: 14px;
+    padding: 6px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+</style>
+<ion-view class="home-view">
+ 
+  <ion-nav-title>
+    <span>Our Agents</span>
+  </ion-nav-title>
+  <ion-content>
+ 
+      
+
+      
+      
+   
+      
+            <div class="item item-divider" style="font-size: 15px;    padding-top: 18px; font-weight: 200;">Contact An Agent Today!</div>
+        
+    	 
+      
+    	 
+      
+      
+ 
+          <div ng-repeat="post in posts track by $index" track>
+        
+         
+      
+<div class="posts">
+            <div  class="post-card" style=" margin: 0px 0px 0px 0px;">
+                
+                
+
+            
+      
+        <div class="card-header" style="    padding: 7px;
+    padding-bottom: 0;">
+            
+             <div class = "row">
+   <div class = "col" style="padding-bottom: 0;">
+       
+       
+       <h1 class="packshack" style="margin-bottom: 0;    padding-left: 5px;">{{post.title.rendered}}</h1>
+        <h2 class="optional" style="    top: 14px; position: absolute; right: 16px; color: blue;    color: #448bb5;    top: 10px;
+    font-size: 14px;">{{post.pure_taxonomies.jobtitle[0].name }}<span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>    
+                        <h2 class="optional" style="    top: 14px; position: absolute; right: 16px; color: blue;    color: #448bb5;    top: 10px;
+    font-size: 16px;">{{post.jobtitle |  htmlToPlaintext}}<span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>    
+    </div>
+        
+ </div>
+              
+</div>
+<div class="card-content-outer">
+    
+     <div class = "row" style="padding-left: 16px; padding-right: 16px; padding-top: 5px;">
+   <div class = "col col-33">
+         <img ng-src="{{post.better_featured_image.source_url}}"style="    width: 100%;
+    border-radius: 50%;
+    
+    padding: .25em;    border-radius: 50%;
+    
+    padding: .25em;    width: 100px;
+    border-radius: 50%;
+    padding: .35em;
+    border: 2px solid #efefef;    height: 86px;">
+ 
+   </div>
+   <div class = "col col-66"><div class="card-content"><p style=" padding: 0;">{{post.excerpt.rendered | html_filters | htmlToPlaintext | limitTo: 125 | rawHtml }} ...</p></div></div>
+  
+ </div>
+ 
+    
+    
+</div>
+<div class="card-footer" style="margin-top: 2px;">
+ 
+ <a class="card-button primary"  href="#/app/operatives/{{post.id}}">CALL ME</a> | <a class="card-button primary" style="color: #3c3c3c;">TEXT ME</a>       
+     <!-- <a class="card-button secondary" ng-click="sharePost(post.url)">DETAILS</a> -->
+  
+  
+</div>
+
+        </div>
+    </div>  
+      </div>
+   
+      
+        
+        <!--
+    <div ng-repeat="x in records">
+        
+        
+        
+        <p>{{x._embedded.author[0].name}}</p>
+        <p>{{x.link}}</p>
+        <p>{{x.date | date}}</p>
+       {{x.content.rendered | htmlToPlaintext}}
+        <img src="{{x.author_avatar_urls[96]}}" />
+      
+ 
+    </div>
+ -->
+      
+     
+       
+
+  </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+<ion-view  class="home-view" view-title="Pack Shack">
+
+  <ion-content>
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+            
+      
+<div class="posts packshack">
+            <div  class="post-card">
+	<ion-list>
+        
+        
+		<ion-item class="item-icon-right" ng-repeat="post in posts track by $index" href="#/app/packshacks/{{post.id}}" track>
+			  <img style="width: 100px; float: left;" ng-if="post.better_featured_image" ng-src="{{post.better_featured_image.source_url}}" class="alignleft" />  
+			<h2 ng-bind-html="post.title.rendered"></h2>
+			<p ng-if="post.excerpt.rendered" ng-bind-html="post.excerpt.rendered"></p>
+			<i class="icon ion-chevron-right icon-accessory"></i>
+		</ion-item>
+	</ion-list>
+    </div></div>
+	<ion-infinite-scroll
+	ng-if="moreDataExists()"
+    on-infinite="loadMore()"
+    distance="1%"
+    immediate-check="false">
+  </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view> -->
+          <a href="" ng-click="showCredits()">     <fab-button-right target-id="content" css-class="app-fab-btn">
+         <i class="icon ion ion-plus-round"></i>
+      </fab-button-right></a>
+<template>
+<ion-view class="home-view">
+ 
+  <ion-nav-title>
+    <span>Operatives</span>
+  </ion-nav-title>
+  <ion-content>
+ 
+      
+
+      
+      
+   
+         <div class="item item-divider" style="    font-size: 16.5px;
+    font-weight: 200;"> 
+
+ 
+           
+                    
+
+           
+           
+           <span style=""><div style="padding-top: 7px;">Contact An Operative</div></span>
+      </div>
+
+    	 
+      
+      
+ 
+          <div ng-repeat="post in posts track by $index" track>
+        
+         
+      
+<div class="posts" style="padding-top: 5px;">
+            <div  class="post-card">
+                
+                
+
+            
+      
+        <div class="card-header" style="padding-bottom: 0;    padding-top: 17px;
+    padding-left: 18px;">
+            
+             <div class = "row">
+   <div class = "col">
+       
+       
+       <h1 class="packshack" style="margin-bottom: 0;">{{post.title.rendered}}</h1>
+                        <h2 class="optional" style="    top: 14px; position: absolute; right: 16px; color: blue;    color: #448bb5;    top: 10px;
+    font-size: 14px;">{{post.jobtitle| htmlToPlaintext}}<span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>    
+    </div>
+        
+ </div>
+              
+</div>
+<div class="card-content-outer">
+    
+     <div class = "row" style="padding-left: 16px; padding-right: 16px; padding-top: 5px;">
+   <div class = "col col-33">
+         <img ng-src="{{post.better_featured_image.source_url}}"style="    width: 100%;
+    border-radius: 50%;
+    
+    padding: .25em;    width: 118px;
+    border-radius: 50%;
+    padding: .35em;
+    border: 2px solid #efefef;margin-top: 7px;">
+ 
+   </div>
+   <div class = "col col-66"><div class="card-content"><p style="    padding-top: 2px;">{{post.excerpt.rendered | htmlToPlaintext}}</p></div></div>
+  
+ </div>
+ 
+    
+    
+</div>
+<div class="card-footer">
+ 
+ <a class="card-button primary"  href="#/app/operatives/{{post.id}}">CONTACT</a> | <a class="card-button primary" style="color: #3c3c3c;">REVIEW</a> 
+     <!-- <a class="card-button secondary" ng-click="sharePost(post.url)">DETAILS</a> -->
+ 
+</div>
+
+        </div>
+    </div>  
+      </div>
+   
+      
+        
+        <!--
+    <div ng-repeat="x in records">
+        
+        
+        
+        <p>{{x._embedded.author[0].name}}</p>
+        <p>{{x.link}}</p>
+        <p>{{x.date | date}}</p>
+       {{x.content.rendered | htmlToPlaintext}}
+        <img src="{{x.author_avatar_urls[96]}}" />
+      
+ 
+    </div>
+ -->
+      
+     
+       
+
+  </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+<ion-view  class="home-view" view-title="Pack Shack">
+
+  <ion-content>
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+            
+      
+<div class="posts packshack">
+            <div  class="post-card">
+	<ion-list>
+        
+        
+		<ion-item class="item-icon-right" ng-repeat="post in posts track by $index" href="#/app/packshacks/{{post.id}}" track>
+			  <img style="width: 100px; float: left;" ng-if="post.better_featured_image" ng-src="{{post.better_featured_image.source_url}}" class="alignleft" />  
+			<h2 ng-bind-html="post.title.rendered"></h2>
+			<p ng-if="post.excerpt.rendered" ng-bind-html="post.excerpt.rendered"></p>
+			<i class="icon ion-chevron-right icon-accessory"></i>
+		</ion-item>
+	</ion-list>
+    </div></div>
+	<ion-infinite-scroll
+	ng-if="moreDataExists()"
+    on-infinite="loadMore()"
+    distance="1%"
+    immediate-check="false">
+  </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view> -->
