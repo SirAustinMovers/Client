@@ -18,12 +18,12 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
   };
 })
 
-    .controller('ExampleController', ['$scope', function($scope) {
+    .controller('FormController', ['$scope', function($scope) {
       $scope.master = {};
 
       $scope.update = function(user) {
         $scope.master = angular.copy(user);
-          localStorage.setItem('scopeMaster', JSON.stringify($scope.master));
+          localStorage.setItem('newPost', JSON.stringify($scope.master));
           console.log($scope.master);
       };
 
