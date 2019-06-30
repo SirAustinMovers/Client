@@ -18,6 +18,22 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
   };
 })
 
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.master = {};
+
+      $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+          localStorage.setItem('scopeMaster', JSON.stringify($scope.master));
+          console.log($scope.master);
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+    }])
+
 // CATEGORIES MENU
 .controller('PushMenuCtrl', function($scope, Categories) {
 
