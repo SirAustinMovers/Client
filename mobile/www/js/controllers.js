@@ -18,7 +18,90 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
   };
 })
 
-    .controller('FormController', ['$scope', function($scope) {
+.controller('FormCtrl', function($rootScope, $scope, $ionicActionSheet, $http, $ionicModal, $state,  WORDPRESS_API_URL, AuthService) {
+
+      $scope.postRequest = function() {
+          var data = "http://127.0.0.1/wp-content/devchan/file.json"
+          console.log(data);
+    $http.post("http://127.0.0.1/wp-json/wp/v2/posts", data).then(
+      function successCallback(response) {
+        console.log("Successfully POST-ed data");
+      },
+      function errorCallback(response) {
+        console.log(response);
+      }
+    );
+  };
+    
+  
+          $scope.getRequest = function() {
+              $http.get( 'http://127.0.0.1/wp-json/wp/v2/operatives'
+     ) 
+    .success(function(data) {
+ 
+                     console.log(data);
+    
+    })
+    .error(function(data) {
+     
+    });
+              /*
+    console.log("I've been pressed!");
+    $http.get("http://localhost/api/get_recent_posts").then(
+      function successCallback(response) {
+        $scope.response = response;
+      },
+      function errorCallback(response) {
+        console.log("Unable to perform get request");
+      }
+    );*/
+  };
+      $scope.master = {};
+
+      $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+          localStorage.setItem('newPost', JSON.stringify($scope.master));
+          console.log($scope.master);
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+})
+    .controller('FormController', ['$scope', function($scope, $http) {
+        
+          $scope.getRequest = function() {
+              
+              
+     $http.jsonp('http://127.0.0.1/api/' +
+      'get_recent_posts/' +
+      '?page='+ page +
+      '&insecure=cool' +
+      '&callback=JSON_CALLBACK') 
+    .success(function(data) {
+      deferred.resolve(data);
+                     console.log(data);
+    
+    })
+    .error(function(data) {
+      deferred.reject(data);
+    });
+ 
+              
+              
+              /*
+    console.log("I've been pressed!");
+    $http.get("http://127.0.0.1/api/get_recent_posts").then(
+      function successCallback(response) {
+        $scope.response = response;
+      },
+      function errorCallback(response) {
+        console.log("Unable to perform get request");
+      }
+    );*/
+  };
       $scope.master = {};
 
       $scope.update = function(user) {
