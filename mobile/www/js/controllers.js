@@ -31,7 +31,7 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
    },
       data: {
         title: 'newestpost',
-        body: 'thisisthebody'
+        content: '<iframe width="560" height="315" src="https://www.youtube.com/embed/aPvWQGF32Us" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
       },
         
    success: function( data, txtStatus, xhr ) {
