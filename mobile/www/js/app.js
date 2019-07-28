@@ -155,10 +155,38 @@ angular.module('your_app_name', [
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     
   $stateProvider
 
+  .state('app.logon', {
+    url: "/logon",
+    views: {
+      'menuContent': {
+        templateUrl: "views/app/logon.html",
+        controller: 'LogonCtrl'
+      }
+    },
+    data: {
+      authenticate: true
+    }
+  })
+  
+  .state('app.report', {
+    url: "/report",
+    views: {
+      'menuContent': {
+        templateUrl: "views/app/report.html",
+        controller: 'ReportCtrl'
+      }
+    },
+    data: {
+      authenticate: true
+    }
+  })  
+
+  
   .state('walkthrough', {
     url: "/",
     templateUrl: "views/auth/walkthrough.html",

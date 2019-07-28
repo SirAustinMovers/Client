@@ -18,10 +18,73 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
   };
 })
 
+
+  .controller('LogonCtrl', function ($scope, LoginService, $ionicPopup, $state) {
+    $scope.data = {};
+
+    $scope.login = function () {
+      // contact our login service with the data from the username and password fields
+      LoginService.loginUser($scope.data.username, $scope.data.password).then(function (data) {
+        // if it is a success, go to the Report screen
+        $state.go('report');
+      }, function (data) {
+        // if there is an error pop it up onscreen
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login failed!',
+          template: 'Please check your credentials!'
+        });
+      });
+    }
+  })
+  .controller('ReportCtrl', function ($scope, $ionicLoading, $ionicPopup, WordpressService) {
+    $scope.data = {};
+    $scope.report = "";
+    $scope.createReport = function () {
+      // show a saving... message while we contact the service
+      $ionicLoading.show({
+        template: 'Saving...'
+      });
+      // pass through the values from the score and report fields to the service
+      WordpressService.createReport($scope.data.score, $scope.data.report).then(success, failure);
+    }
+
+    var success = function () {
+      $ionicLoading.hide();
+      $scope.data = {};
+      var alertPopup = $ionicPopup.alert({
+        title: 'Saved!',
+        template: 'Your report has been created'
+      });
+    }
+
+    var failure = function (err) {
+      $ionicLoading.hide();
+      var alertPopup = $ionicPopup.alert({
+        title: 'Error',
+        template: err.message
+      });
+    }
+
+  })
+
 .controller('FormCtrl', function($rootScope, $scope, $ionicActionSheet, $q, $http, $ionicModal, $state,  WORDPRESS_API_URL, AuthService) {
 
+     $scope.postRequest = function() {
+  $scope.user = AuthService.getUser();
+    console.log($scope.user);    
     
-    
+         
+// the important bit, contact the end point and ask for a token
+ $http.post('http://localhost/wp-json/jwt-auth/v1/token', data).error(function (error) {
+ failure(error);
+ }).success(function (data) {
+ // you are now logged in, save to session storage, the auth interceptor will pick up
+ // and add to each request
+ $window.sessionStorage.token = data.token;
+ success(data);
+ });
+         
+         
     var data = {
  title: 'Title',
  excerpt: 'Excerpt',
@@ -30,11 +93,12 @@ angular.module('your_app_name.controllers', ['ionic','ion-fab-button'])
  };
  // the important bit, make a request to the server to create a new post
  // The Authentication header will be added to the request automatically by our Interceptor service
- $http.post('http://adam:123456@localhost/wp-json/wp/v2/posts', data).error(function (error) {
- $q.deferred.reject(error);
+ $http.post('http://localhost/wp-json/wp/v2/posts', data).error(function (error) {
+ console.log(error);
  }).success(function (data) {
- $q.deferred.resolve(data);
+ console.log(data);
  });
+         }; 
     
     /*
     jQuery.ajax({
