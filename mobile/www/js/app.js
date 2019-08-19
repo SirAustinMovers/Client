@@ -388,6 +388,20 @@ angular.module('your_app_name', [
       authenticate: true
     }
   })
+  
+  
+    .state('app.shoutout', {
+    url: "/shoutout",
+    views: {
+      'menuContent': {
+        templateUrl: "views/app/shoutout.html",
+        controller: 'ShoutoutCtrl'
+      }
+    },
+    data: {
+      authenticate: true
+    }
+  })  
 
   .state('app.operative', {
     url: "/operatives/:postId",

@@ -8,11 +8,12 @@
   <ion-content>
     <ul class="list">
 
-      <ion-toggle ng-model="notifications" toggle-class="toggle-dark">Push Notifications</ion-toggle>
-      <ion-toggle ng-model="sendLocation" toggle-class="toggle-dark">Send Location</ion-toggle>
+
 
       <div class="item item-divider">OPTIONS</div>
-      <a class="item option" ng-controller="EmailSenderCtrl" ng-click="sendFeedback()">
+      <ion-toggle ng-model="notifications" toggle-class="toggle-dark">Push Notifications</ion-toggle>
+      <ion-toggle ng-model="sendLocation" toggle-class="toggle-dark">Send Location</ion-toggle>
+        <a class="item option" ng-controller="EmailSenderCtrl" ng-click="sendFeedback()">
         <i class="icon ion-chatbox dark"></i>
         <span class="title">Send feedback</span>
       </a>
@@ -42,9 +43,7 @@
       </a>
 
     </ul>
-            <fab-button-right target-id="content" css-class="app-fab-btn">
-          <a href="" ng-click="showCredits()">  <i class="icon ion ion-plus-round"></i></a>
-      </fab-button-right>
+
   </ion-content>
 </ion-view>
 

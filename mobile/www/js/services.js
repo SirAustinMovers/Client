@@ -709,7 +709,7 @@ angular.module('your_app_name.services', [])
       delete $window.sessionStorage.token;
 
       // the important bit, contact the end point and ask for a token
-      $http.post('/wp-json/jwt-auth/v1/token', data).error(function (error) {
+      $http.post('http://localhost/wp-json/jwt-auth/v1/token', data).error(function (error) {
         failure(error);
       }).success(function (data) {
         // you are now logged in, save to session storage, the auth interceptor will pick up
@@ -746,7 +746,7 @@ angular.module('your_app_name.services', [])
       };
       // the important bit, make a request to the server to create a new post
       // The Authentication header will be added to the request automatically by our Interceptor service
-      $http.post('/wp-json/wp/v2/posts', data).error(function (error) {
+      $http.post('http://adam:123456@localhost/wp-json/wp/v2/posts', data).error(function (error) {
         deferred.reject(error);
       }).success(function (data) {
         deferred.resolve(data);

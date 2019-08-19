@@ -10,3 +10,12 @@ padding: 0px !important;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.bar.app-top-bar {
+    background-color: #2b2b2b;
+}
+
+.bar-header {
+    top: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}

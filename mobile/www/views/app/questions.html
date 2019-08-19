@@ -1,27 +1,146 @@
 <ion-view class="home-view">
   <ion-nav-title>
-    <span>Recent posts</span>
+    <span>eManual</span>
   </ion-nav-title>
   <ion-content>
 
     <!-- Refresh to get the new posts -->
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
     </ion-refresher>
-      <div style="background: yellow; margin-left: auto;
+      <div style="background: #2b2b2b; margin-left: auto;
     margin-right: auto;">
-<img class="user-image" ng-src="{{user.avatar}}" style="     display: block;
+ <div class="row">
+  <div class="col"><img class="user-image" ng-src="{{user.avatar}}" style="     display: block;
     margin-left: auto;
-    margin-right: auto;border-radius: 50%; padding-top: 2em; padding: 1em;padding-bottom: 2em;    width: 130px;
- " >
-          <h3 style="    font-size: 18px;
-    text-align: center;
-    margin-top: 0;
-    padding-bottom: 2em;">Agent Adam</h3>
-      </div>
-    <div class="posts"> 
-      <div post-card ng-repeat="post in posts" class="post-card"></div>
-    </div>
+    margin-right: auto;border-radius: 50%; padding-top: 1em; padding: 1em;padding-bottom: 1em;    width: 115px;
+ " ></div>
+  <div class="col"> <h3 style="    font-size: 18px;
+    text-align: left;
+    margin-top: 44px;
+      padding-bottom: 2em; color: white;">Agent Adam</h3></div>  <div class="col"></div>
 
+</div>
+      </div>
+  <div class="item item-divider" style="font-size: 15px;    padding-top: 18px; font-weight: 200;">Contact An Agent Today!</div>
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Packing Properly</h3>
+    </div><div class="col col-25">  <a href="/#/app/category/Packing/42"><button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+     </button></a></div>
+</div>
+ 
+</div>
+      
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Wrapping Furniture</h3>
+    </div><div class="col col-25"> <button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+      </button></div>
+</div>
+ 
+</div>
+      
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Stacking A Truck</h3>
+    </div><div class="col col-25"> <button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+      </button></div>
+</div>
+ 
+</div>  
+      
+      
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Apartment Moving</h3>
+    </div><div class="col col-25"> <button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+      </button></div>
+</div>
+ 
+</div>  
+      
+      
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Long Distance Moving</h3>
+    </div><div class="col col-25"> <a href="/#/app/category/Packing/42"><button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+     </button></a></div>
+</div>
+ 
+</div>  
+      
+      
+<div class="list card" style="    margin: 11px 10px;">
+
+ <div class="row">
+  <div class="col"> <img class="user-image" ng-src="{{user.avatar}}" style="    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;width: 61px;" >
+ </div>
+  <div class="col col-50"><h3 style="    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+      ">Stacking A Truck</h3>
+    </div><div class="col col-25"> <button class="button button-positive" style="       margin-top: 7px;">
+  Learn More
+      </button></div>
+</div>
+ 
+</div>        
+      
+     
+     
     <!-- Infinit scroll -->
     <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%">
     </ion-infinite-scroll>
